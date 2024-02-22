@@ -1,0 +1,14 @@
+.game{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    width: 600px;
+    border: 1px solid black;
+    margin: 10px;
+
+}
+
+.game p{
+    width: 25%;
+    padding-left: 10px;
+}
