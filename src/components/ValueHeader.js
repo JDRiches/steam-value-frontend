@@ -1,18 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/ValueHeader.css'
+import {useSearchParams} from 'react-router-dom'
 
 function ValueHeader({userid}) {
+
+  const [userSearch, setUserSearch] = useState("")
+
+  const [searchParams, setSearchParams] = useSearchParams()
+
   return (
     <div className='valueHeader'>
-        <div className='left'>
-            <p>User: {userid}</p>
-            <p>Total Games: XXX </p>
-            <p>Total</p>
-        </div>
-        <div className='right'>
-            <label>Value per Hour: </label>
-            <input type='text' />
-        </div>
+      <div className='currentUser'>
+        <p>User: {userid}</p>
+      </div>
+      <div className='right'>
+        <p>Search For Another User</p>
+        <form>
+        <input
+          type='text'
+          required
+          onChange={e => setUserSearch(e.target.value)} />
+        </form>
+        <button onClick={() => {setSearchParams({'user': userSearch})}}>Go</button>
+      </div>
     </div>
   )
 }
